@@ -1,7 +1,130 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# 15分ごとのタイムテーブル作成
+Minute.create(minutes_per_15: '05:00')
+Minute.create(minutes_per_15: '05:15')
+Minute.create(minutes_per_15: '05:30')
+Minute.create(minutes_per_15: '05:45')
+Minute.create(minutes_per_15: '06:00')
+Minute.create(minutes_per_15: '06:15')
+Minute.create(minutes_per_15: '06:30')
+Minute.create(minutes_per_15: '06:45')
+Minute.create(minutes_per_15: '07:00')
+Minute.create(minutes_per_15: '07:15')
+Minute.create(minutes_per_15: '07:30')
+Minute.create(minutes_per_15: '07:45')
+Minute.create(minutes_per_15: '08:00')
+Minute.create(minutes_per_15: '08:15')
+Minute.create(minutes_per_15: '08:30')
+Minute.create(minutes_per_15: '08:45')
+Minute.create(minutes_per_15: '09:00')
+Minute.create(minutes_per_15: '09:15')
+Minute.create(minutes_per_15: '09:30')
+Minute.create(minutes_per_15: '09:45')
+Minute.create(minutes_per_15: '10:00')
+Minute.create(minutes_per_15: '10:15')
+Minute.create(minutes_per_15: '10:30')
+Minute.create(minutes_per_15: '10:45')
+Minute.create(minutes_per_15: '11:00')
+Minute.create(minutes_per_15: '11:15')
+Minute.create(minutes_per_15: '11:30')
+Minute.create(minutes_per_15: '11:45')
+Minute.create(minutes_per_15: '12:00')
+Minute.create(minutes_per_15: '12:15')
+Minute.create(minutes_per_15: '12:30')
+Minute.create(minutes_per_15: '12:45')
+Minute.create(minutes_per_15: '13:00')
+Minute.create(minutes_per_15: '13:15')
+Minute.create(minutes_per_15: '13:30')
+Minute.create(minutes_per_15: '13:45')
+Minute.create(minutes_per_15: '14:00')
+Minute.create(minutes_per_15: '14:15')
+Minute.create(minutes_per_15: '14:30')
+Minute.create(minutes_per_15: '14:45')
+Minute.create(minutes_per_15: '15:00')
+Minute.create(minutes_per_15: '15:15')
+Minute.create(minutes_per_15: '15:30')
+Minute.create(minutes_per_15: '15:45')
+Minute.create(minutes_per_15: '16:00')
+Minute.create(minutes_per_15: '16:15')
+Minute.create(minutes_per_15: '16:30')
+Minute.create(minutes_per_15: '16:45')
+Minute.create(minutes_per_15: '17:00')
+Minute.create(minutes_per_15: '17:15')
+Minute.create(minutes_per_15: '17:30')
+Minute.create(minutes_per_15: '17:45')
+Minute.create(minutes_per_15: '18:00')
+Minute.create(minutes_per_15: '18:15')
+Minute.create(minutes_per_15: '18:30')
+Minute.create(minutes_per_15: '18:45')
+Minute.create(minutes_per_15: '19:00')
+Minute.create(minutes_per_15: '19:15')
+Minute.create(minutes_per_15: '19:30')
+Minute.create(minutes_per_15: '19:45')
+Minute.create(minutes_per_15: '20:00')
+Minute.create(minutes_per_15: '20:15')
+Minute.create(minutes_per_15: '20:30')
+Minute.create(minutes_per_15: '20:45')
+Minute.create(minutes_per_15: '21:00')
+Minute.create(minutes_per_15: '21:15')
+Minute.create(minutes_per_15: '21:30')
+Minute.create(minutes_per_15: '21:45')
+Minute.create(minutes_per_15: '22:00')
+Minute.create(minutes_per_15: '22:15')
+Minute.create(minutes_per_15: '22:30')
+Minute.create(minutes_per_15: '22:45')
+Minute.create(minutes_per_15: '23:00')
+Minute.create(minutes_per_15: '23:15')
+Minute.create(minutes_per_15: '23:30')
+Minute.create(minutes_per_15: '23:45')
+Minute.create(minutes_per_15: '24:00')
+
+Color.create(color_name: '#FFF')
+Color.create(color_name: '#FFCCFF')
+Color.create(color_name: '#CCFFCC')
+Color.create(color_name: '#99CCFF')
+Color.create(color_name: '#FFCC66')
+
+Schedule.create(schedule_date: '2021-02-22',
+                start_time_id: 1,
+                end_time_id: 13,
+                title: '朝活',
+                color_id: 4)
+Schedule.create(schedule_date: '2021-02-24',
+                start_time_id: 5,
+                end_time_id: 13,
+                title: 'Progate',
+                color_id: 3)
+Schedule.create(schedule_date: '2021-02-24',
+                start_time_id: 25,
+                end_time_id: 33,
+                title: '同期と銀座で昼食',
+                color_id: 5)
+Schedule.create(schedule_date: '2021-02-25',
+                start_time_id: 9,
+                end_time_id: 13,
+                title: '朝活',
+                color_id: 4)
+Schedule.create(schedule_date: '2021-02-25',
+                start_time_id: 13,
+                end_time_id: 25,
+                title: '勉強会参加',
+                color_id: 3)
+Schedule.create(schedule_date: '2021-02-26',
+                start_time_id: 1,
+                end_time_id: 9,
+                title: '朝活',
+                color_id: 4)
+Schedule.create(schedule_date: '2021-02-26',
+                start_time_id: 25,
+                end_time_id: 33,
+                title: '同期と銀座で昼食',
+                color_id: 5)
+Schedule.create(schedule_date: '2021-02-27',
+                start_time_id: 25,
+                end_time_id: 77,
+                title: 'キャンプ!',
+                color_id: 2)
+Schedule.create(schedule_date: '2021-02-28',
+                start_time_id: 1,
+                end_time_id: 25,
+                title: 'キャンプ!',
+                color_id: 2)

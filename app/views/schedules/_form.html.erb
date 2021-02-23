@@ -1,0 +1,38 @@
+<%= form_with(model: @schedule, local: true) do |form| %>
+
+<div class="form-container">
+  <div class="form-head">
+    <h2>予定を追加する</h2>
+  </div>
+  <%= form.label :schedule_date %>
+  <%= form.date_select :schedule_date %>
+  <br>
+  <%= form.label :start_time_id %>
+  <%= form.collection_select(:start_time_id, @minutes, :id, :minutes_per_15) %>
+  <%= form.label :end_time_id %>
+  <%= form.collection_select(:end_time_id, @minutes, :id, :minutes_per_15, selected: 5) %>
+  <br>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <div class="color_radio_button">
+    <label><%= form.radio_button :color_id, 2, {:checked => true} %>
+      <span style="color:#FFCCFF;">■</span></label>
+    <label><%= form.radio_button :color_id, 3 %>
+      <span style="color:#CCFFCC;">■</span></label>
+    <label><%= form.radio_button :color_id, 4 %>
+      <span style="color:#99CCFF;">■</span></label>
+    <label><%= form.radio_button :color_id, 5 %>
+      <span style="color:#FFCC66;">■</span></label>
+  </div>
+
+  <div class="submit-button">
+    <%= form.submit "カレンダーに追加する" %>
+  </div>
+</div>
+
+<!-- エラーメッセージのパーシャルをレンダリングする -->
+<%= render 'layouts/error_messages', model: form.object %>
+
+<% end %>
+</div>

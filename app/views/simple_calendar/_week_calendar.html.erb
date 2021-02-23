@@ -1,0 +1,58 @@
+<div class="simple-calendar">
+  <div class="calendar-heading">
+    <span class="previous-week"><%= link_to t('simple_calendar.previous', default: '<< 前の一週間'), calendar.url_for_previous_view %></span>
+    <span class="next-week"><%= link_to t('simple_calendar.next', default: '次の一週間 >>'), calendar.url_for_next_view %></span>
+  </div>
+
+  <table class="table table-striped">
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+        <tr>
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+            <!-- 月の表示 -->
+            <%= t('date.month_names')[start_date.month] %>
+            /
+            <!-- 日付の表示 -->
+            <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+              <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+              <% else %>
+                <% passed_block.call day, sorted_events.fetch(day, []) %><% end %>
+                <!-- 曜日の表示 -->
+                <%= t('date.abbr_day_names')[day.wday] %>
+              <% end %>
+            <% end %>
+          </tr>
+          <!-- 一日分の予定を繰り返す -->
+          <% @minutes.each do |minute| %>
+            <tr>
+              <!-- 一週間分の予定を繰り返す -->
+              <% date_range.each_slice(7) do |week| %>
+                <% week.each do |day| %>
+                  <% schedule = @schedules.where(schedule_date: day).where("start_time_id <= ?", minute.id).where("end_time_id >= ?", minute.id + 1).first %>
+                    <% if schedule.present? %>
+                      <td bgcolor=<%= Color.find(schedule.color_id).color_name %>>
+                        <div class="minutes_per_15">
+                          <%= minute.minutes_per_15 %>
+                        </div>
+                        <div class="schedule_title">
+                          <a href="#" class="tgTtip" data-tooltip="<a href='/schedules/<%= schedule.id %>/edit'>編集</a> <a href='/schedules/<%= schedule.id %>' data-method='delete'>削除</a> ">
+                            <span class="tooltip1">
+                              <%= schedule.title %></span></a>
+                        </div>
+                      </td>
+                    <% else %>
+                      <td>
+                        <div class="minutes_per_15">
+                          <%= minute.minutes_per_15 %>
+                        </div>
+                      </td>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
