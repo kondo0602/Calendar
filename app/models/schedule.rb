@@ -19,11 +19,11 @@ class Schedule < ApplicationRecord
   validate :end_time_included_other_schedules?
 
   def start_time_not_equal_end_time?
-    errors.add(:start_time_id, '開始時刻と終了時刻が同じです') if start_time_id == end_time_id
+    errors.add(:start_time_id, 'と終了時刻が同じです') if start_time_id == end_time_id
   end
 
   def start_time_before_end_time?
-    errors.add(:start_time_id, '開始時刻は終了時刻より前の時刻を指定してください') if start_time_id > end_time_id
+    errors.add(:start_time_id, 'は終了時刻より前の時刻を指定してください') if start_time_id > end_time_id
   end
 
   def start_time_included_other_schedules?
@@ -32,7 +32,7 @@ class Schedule < ApplicationRecord
     other_schedules.each do |other_schedule|
       if start_time_id.to_i.between?(other_schedule.start_time_id,
                                      other_schedule.end_time_id - 1)
-        errors.add(:start_time_id, '開始時刻が他の予定と重複しています')
+        errors.add(:start_time_id, 'が他の予定と重複しています')
       end
     end
   end
@@ -43,7 +43,7 @@ class Schedule < ApplicationRecord
     other_schedules.each do |other_schedule|
       if end_time_id.to_i.between?(other_schedule.start_time_id + 1,
                                    other_schedule.end_time_id)
-        errors.add(:end_time_id, '終了時刻が他の予定と重複しています')
+        errors.add(:end_time_id, 'が他の予定と重複しています')
       end
     end
   end

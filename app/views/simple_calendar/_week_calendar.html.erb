@@ -1,10 +1,7 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: '<<前の一週間'), calendar.url_for_previous_view %>
-    <span class="calendar-title">
-      <strong><%= t('date.month_names')[start_date.month] %></strong>
-    </span>
-    <%= link_to t('simple_calendar.next', default: '次の一週間>>'), calendar.url_for_next_view %>
+    <span class="previous-week"><%= link_to t('simple_calendar.previous', default: '<< 前の一週間'), calendar.url_for_previous_view %></span>
+    <span class="next-week"><%= link_to t('simple_calendar.next', default: '次の一週間 >>'), calendar.url_for_next_view %></span>
   </div>
 
   <table class="table table-striped">
@@ -13,13 +10,13 @@
         <tr>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-            <!-- 曜日の表示 -->
-            <%= t('date.abbr_day_names')[day.wday] %>
             <!-- 日付の表示 -->
             <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
               <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
               <% else %>
                 <% passed_block.call day, sorted_events.fetch(day, []) %><% end %>
+                <!-- 曜日の表示 -->
+                <%= t('date.abbr_day_names')[day.wday] %>
               <% end %>
             <% end %>
           </tr>

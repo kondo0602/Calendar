@@ -1,7 +1,7 @@
-<h1>一週間カレンダー</h1>
-
-<%= render 'form' %>
-<br>
+<div class="container">
+  <h1><%= Date.today.mon %>.<%= Date.today.mday %></h1>
+  <%= render 'form' %>
+</div>
 
 <%= week_calendar(attribute: :start_date_id, end_attribute: :end_date_id) do |date, schedules| %>
 <%= date.day %>
