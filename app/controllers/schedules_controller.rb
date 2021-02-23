@@ -1,14 +1,14 @@
 class SchedulesController < ApplicationController
+  before_action :set_all_schedules_instance, only: %i[index create]
+  before_action :set_params_schedules_instance, only: %i[edit update]
+  before_action :set_all_minutes_instance, only: %i[index create edit update destroy]
+
   def index
     @schedule = Schedule.new
-    @schedules = Schedule.all
-    @minutes = Minute.all
   end
 
   def create
     @schedule = Schedule.new(schedule_params)
-    @schedules = Schedule.all
-    @minutes = Minute.all
     if @schedule.save
       redirect_to root_url
     else
@@ -16,14 +16,9 @@ class SchedulesController < ApplicationController
     end
   end
 
-  def edit
-    @schedule = Schedule.find(params[:id])
-    @minutes = Minute.all
-  end
+  def edit; end
 
   def update
-    @schedule = Schedule.find(params[:id])
-    @minutes = Minute.all
     if @schedule.update(schedule_params)
       redirect_to root_url
     else
@@ -32,7 +27,7 @@ class SchedulesController < ApplicationController
   end
 
   def destroy
-    Schedule.find(params[:id]).destroy
+    @schedule.destroy
     redirect_to root_url
   end
 
@@ -44,5 +39,17 @@ class SchedulesController < ApplicationController
                                      :end_time_id,
                                      :title,
                                      :color_id)
+  end
+
+  def set_all_schedules_instance
+    @schedules = Schedule.all
+  end
+
+  def set_params_schedules_instance
+    @schedule = Schedule.find(params[:id])
+  end
+
+  def set_all_minutes_instance
+    @minutes = Minute.all
   end
 end
