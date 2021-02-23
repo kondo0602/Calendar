@@ -1,0 +1,72 @@
+.simple-calendar {
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}
+
+.hide{
+    display: none;
+}
+
+a.tgTtip {
+    margin: 0;
+    text-decoration: none;
+    font-size: 1em;
+    position: relative;
+}
+
+/* 時間 */
+.minutes_per_15 {
+  font-size: 3px;
+  color: #808080;
+}
+
+/* 予定 */
+.schedule_title{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ツールチップ */
+span.tooltip1 {
+    color: #808080;
+}
+
+p.tgToolTip {
+    margin: 0;
+    padding: 0.5em 1em;
+    background-color: rgba(100,100,100,0.5);
+    color: #fff;
+    min-height: 1em;
+    top: 100px;
+    left: 20px;
+    position: absolute;
+    z-index: 100;
+}
+
+.dummy {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}

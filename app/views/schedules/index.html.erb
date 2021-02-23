@@ -1,0 +1,8 @@
+<h1>一週間カレンダー</h1>
+
+<%= render 'form' %>
+<br>
+
+<%= week_calendar(attribute: :start_date_id, end_attribute: :end_date_id) do |date, schedules| %>
+<%= date.day %>
+<% end %>

@@ -10,6 +10,10 @@ module Calendar
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    # デフォルトの言語を日本語に設定
+    config.i18n.default_locale = :ja
+    # config/locales以下のディレクトリ内にある全てのymlファイルを読み込むように指示
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
