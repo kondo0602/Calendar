@@ -82,3 +82,49 @@ Color.create(color_name: '#FFCCFF')
 Color.create(color_name: '#CCFFCC')
 Color.create(color_name: '#99CCFF')
 Color.create(color_name: '#FFCC66')
+
+Schedule.create(schedule_date: '2021-02-22',
+                start_time_id: 1,
+                end_time_id: 13,
+                title: '朝活',
+                color_id: 4)
+Schedule.create(schedule_date: '2021-02-24',
+                start_time_id: 5,
+                end_time_id: 13,
+                title: 'Progate',
+                color_id: 3)
+Schedule.create(schedule_date: '2021-02-24',
+                start_time_id: 25,
+                end_time_id: 33,
+                title: '同期と銀座で昼食',
+                color_id: 5)
+Schedule.create(schedule_date: '2021-02-25',
+                start_time_id: 9,
+                end_time_id: 13,
+                title: '朝活',
+                color_id: 4)
+Schedule.create(schedule_date: '2021-02-25',
+                start_time_id: 13,
+                end_time_id: 25,
+                title: '勉強会参加',
+                color_id: 3)
+Schedule.create(schedule_date: '2021-02-26',
+                start_time_id: 1,
+                end_time_id: 9,
+                title: '朝活',
+                color_id: 4)
+Schedule.create(schedule_date: '2021-02-26',
+                start_time_id: 25,
+                end_time_id: 33,
+                title: '同期と銀座で昼食',
+                color_id: 5)
+Schedule.create(schedule_date: '2021-02-27',
+                start_time_id: 25,
+                end_time_id: 77,
+                title: 'キャンプ!',
+                color_id: 2)
+Schedule.create(schedule_date: '2021-02-28',
+                start_time_id: 1,
+                end_time_id: 25,
+                title: 'キャンプ!',
+                color_id: 2)
