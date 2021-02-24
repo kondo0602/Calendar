@@ -1,24 +1,10 @@
-# README
+# 週間カレンダー
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Railsにて15分刻みのカレンダーを作成しました。
 
-Things you may want to cover:
+自分は30分刻みの手帳を使用していますが、30分に満たない予定は案外多く兼ねてよりあったらいいなと思っていたものです。
 
-* Ruby version
+・アピールできるポイント
 
-* System dependencies
+・ユーザエクスペリエンスを考えた点
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
