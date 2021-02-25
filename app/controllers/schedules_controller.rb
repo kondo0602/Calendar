@@ -10,11 +10,13 @@ class SchedulesController < ApplicationController
 
   def create
     @schedule = Schedule.new(schedule_params)
-    start_date = @schedule.schedule_date
-    @schedules = Schedule.where(schedule_date: start_date.beginning_of_week..start_date.end_of_week)
     if @schedule.save
+      start_date = @schedule.schedule_date
+      @schedules = Schedule.where(schedule_date: start_date.beginning_of_week..start_date.end_of_week)
       redirect_to root_url(start_date: start_date)
     else
+      start_date = params.fetch(:start_date, Date.today).to_date
+      @schedules = Schedule.where(schedule_date: start_date.beginning_of_week..start_date.end_of_week)
       render 'index'
     end
   end
@@ -25,9 +27,9 @@ class SchedulesController < ApplicationController
 
   def update
     @schedule = Schedule.find(params[:id])
-    start_date = @schedule.schedule_date
-    @schedules = Schedule.where(schedule_date: start_date.beginning_of_week..start_date.end_of_week)
     if @schedule.update(schedule_params)
+      start_date = @schedule.schedule_date
+      @schedules = Schedule.where(schedule_date: start_date.beginning_of_week..start_date.end_of_week)
       redirect_to root_url(start_date: start_date)
     else
       render 'edit'
