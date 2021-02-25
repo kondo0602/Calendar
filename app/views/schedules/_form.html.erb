@@ -2,7 +2,7 @@
 
 <div class="form-container">
   <div class="form-head">
-    <h2>予定を追加する</h2>
+    <h2><%= yield(:form_title) %></h2>
   </div>
   <%= form.label :schedule_date %>
   <%= form.date_select :schedule_date %>
