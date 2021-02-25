@@ -2,7 +2,7 @@
 
 <div class="form-container">
   <div class="form-head">
-    <h2>予定を追加する</h2>
+    <h2><%= yield(:form_title) %></h2>
   </div>
   <%= form.label :schedule_date %>
   <%= form.date_select :schedule_date %>
@@ -10,7 +10,7 @@
   <%= form.label :start_time_id %>
   <%= form.collection_select(:start_time_id, @minutes, :id, :minutes_per_15) %>
   <%= form.label :end_time_id %>
-  <%= form.collection_select(:end_time_id, @minutes, :id, :minutes_per_15, selected: 5) %>
+  <%= form.collection_select(:end_time_id, @minutes, :id, :minutes_per_15) %>
   <br>
   <%= form.label :title %>
   <%= form.text_field :title %>
