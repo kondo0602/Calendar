@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :schedule do
-    schedule_date { '2021-02-23' }
+    schedule_date { '2021-02-25' }
     # 6:00 〜 7:00
     start_time_id { 5 }
     end_time_id { 9 }

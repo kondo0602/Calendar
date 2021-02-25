@@ -18,7 +18,7 @@ describe '予定管理機能', type: :system do
         click_on 'カレンダーに追加する'
       end
       it '予定一覧ページに遷移し、予定が追加されていること' do
-        expect(current_path).to eq root_path
+        expect(current_path).to eq schedules_path
         expect(page).to have_content '選考課題に取り組む'
       end
     end
